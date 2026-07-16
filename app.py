@@ -111,13 +111,13 @@ if uploaded_file:
         st.image(result, width=360)
 
     buffer = BytesIO()
-    result.save(buffer, format="PNG")
+    result.save(buffer, format="JPEG", quality=100, subsampling=0, optimize=True)
 
     st.download_button(
-        label="⬇ Download Polaroid PNG",
+        label="⬇ Download Polaroid JPEG",
         data=buffer.getvalue(),
-        file_name="polaroid.png",
-        mime="image/png",
+        file_name="polaroid.jpg",
+        mime="image/jpeg",
     )
 else:
     st.info("Upload an image to start designing your Polaroid.")
